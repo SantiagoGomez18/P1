@@ -12,12 +12,12 @@ public class Estudiante extends usuario{
 	private ArrayList<actividad> actividadesNoExitosas = new ArrayList<>();
 	private ArrayList<actividad> actividadesTerminadas = new ArrayList<actividad>();
 	private boolean learningPathInProgress;
-	private learningPath learningPath = new learningPath();
+	private String learningPath;
 	private ArrayList<learningPath> pathsTerminados = new ArrayList<learningPath>();
 	private ArrayList<learningPath> pathsNoExitosos = new ArrayList<learningPath>();
 	
 	public Estudiante(String login, String contrasena, String rol, ArrayList<String> logros, ArrayList<String> avances, boolean actividadEnProgreso, ArrayList<actividad> actividadesExitosas,
-			ArrayList<actividad> actividadesNoExitosas, learningPath learningPath, ArrayList<learningPath> pathsTerminados, ArrayList<learningPath> pathsNoExitosos) {
+			ArrayList<actividad> actividadesNoExitosas, String learningPath, ArrayList<learningPath> pathsTerminados, ArrayList<learningPath> pathsNoExitosos) {
 		super(login, contrasena, rol);
 		this.logros = logros;
 		this.avances = avances;
@@ -77,11 +77,11 @@ public class Estudiante extends usuario{
 		this.learningPathInProgress = learningPathInProgress;
 	}
 
-	public learningPath getLearningPath() {
+	public String getLearningPath() {
 		return learningPath;
 	}
 
-	public void setLearningPath(learningPath learningPath) {
+	public void setLearningPath(String learningPath) {
 		this.learningPath = learningPath;
 	}
 
@@ -102,8 +102,23 @@ public class Estudiante extends usuario{
 	}
 	
 	
-
-	
-	
-	
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Estudiante{");
+        sb.append("login='").append(super.getLogin()).append("', ");
+        sb.append("rol='").append(super.getRol()).append("', ");
+        sb.append("logros=").append(logros).append(", ");
+        sb.append("avances=").append(avances).append(", ");
+        sb.append("actividadEnProgreso=").append(actividadEnProgreso).append(", ");
+        sb.append("actividadesTerminadas=").append(actividadesTerminadas).append(", ");
+        sb.append("actividadesNoExitosas=").append(actividadesNoExitosas).append(", ");
+        sb.append("learningPathEnProgreso=").append(learningPathInProgress).append(", ");
+        sb.append("learningPath='").append(learningPath).append("', ");
+        sb.append("pathsTerminados=").append(pathsTerminados).append(", ");
+        sb.append("pathsNoExitosos=").append(pathsNoExitosos);
+        sb.append('}');
+        return sb.toString();
+    }
+    
 }
